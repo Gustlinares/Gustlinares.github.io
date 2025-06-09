@@ -1,119 +1,405 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diseño de Empaques</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="modulo1.css">
+  <title>Módulo 1 - B.A.C.K</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+  body {
+      font-family: 'Chau Philomene One', sans-serif;
+      background-color: #f9f9f9;
+      color: #0B121F;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #FFFFFF;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar-nav .nav-link {
+      color: #0B121F;
+      margin-left: 8px;
+      margin-right: 8px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background-color: rgba(183, 221, 255, 0.3);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+      transform: translateY(-1px);
+      color: #0B121F;
+      text-decoration: none;
+    }
+
+    .dropdown-menu {
+      border-radius: 8px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(183, 221, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #D28829, #37ACDB, #D28829);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 6px 20px rgba(55, 172, 219, 0.5);
+      margin-bottom: 40px;
+    }
+
+    /* Module Section */
+    .module-section {
+      padding: 0 15px 50px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .module-box {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px 35px;
+      margin-bottom: 40px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .module-box:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Upload Box */
+    .upload-box {
+      background-color: #f9f9f9;
+      border: 2px dashed #37ACDB;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(55, 172, 219, 0.2);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .upload-box:hover {
+      box-shadow: 0 6px 20px rgba(55, 172, 219, 0.4);
+      border-color: #D28829;
+    }
+
+    .upload-box p {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #0B121F;
+    }
+
+    .upload-box input[type="file"] {
+      border-radius: 8px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      transition: border-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 15px auto;
+      display: block;
+    }
+
+    .upload-box input[type="file"]:focus {
+      outline: none;
+      border-color: #37ACDB;
+      box-shadow: 0 0 6px rgba(55, 172, 219, 0.6);
+    }
+
+    /* Submit Button */
+    #submitBtn {
+      background-color: #D28829;
+      color: #fff;
+      border: none;
+      padding: 10px 30px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease,
+        transform 0.2s ease;
+      box-shadow: 0 6px 14px rgba(210, 136, 41, 0.6);
+    }
+
+    #submitBtn:hover:not(:disabled) {
+      background-color: #b56f1d;
+      box-shadow: 0 8px 18px rgba(181, 111, 29, 0.8);
+      transform: translateY(-2px);
+    }
+
+    #submitBtn:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Spinner */
+    .spinner-border.text-warning {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Image Placeholder */
+    .image-placeholder {
+      background-color: #e0e0e0;
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 15px;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+      user-select: none;
+    }
+
+    /* Next Steps Container */
+    #nextSteps {
+      max-width: 600px;
+      margin: 30px auto 0;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .module-box {
+        padding: 25px 20px;
+      }
+
+      .upload-box input[type="file"] {
+        max-width: 100%;
+      }
+
+      #nextSteps {
+        padding: 0 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container py-4">
-    <!-- Barra superior -->
-    <div class="d-flex align-items-center mb-3">
-      <a href="index.html" class="btn-flecha me-2">
-        <img src="back-arrow_icon-icons.com_54057.png" alt="Volver" style="height: 40px;" />
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Logo" style="height: 40px" />
       </a>
-      <div class="titulo-bar flex-grow-1 d-flex justify-content-between align-items-center">
-        <h5 class="me-3">Introducción al Diseño de Empaques Infantiles</h5>
-        <a href="index.html" class="btn btn-light rounded-pill px-3 py-1">Inicio</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultado.html">Resultados</a></li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="productsDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >Módulos</a
+            >
+            <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+              <li><a class="dropdown-item" href="#">Introducción</a></li>
+              <li><a class="dropdown-item" href="modulo2.html">Psicología del color</a></li>
+              <li><a class="dropdown-item" href="modulo3.html">Diseño creativo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <!-- Video -->
-    <div class="video-container mb-3">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/T6xdpsiN7uE?si=OI92V0x-qZnHuemL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+  <section class="hero">
+    <h1>Módulo 1: Introducción al Diseño de Empaques Infantiles</h1>
+    <p>
+      Conoce los fundamentos y funciones del empaque infantil, su importancia
+      en el mercado y cómo puede influir en la experiencia de compra.
+    </p>
+  </section>
 
-    <!-- Redes sociales -->
-    <div class="d-flex justify-content-end redes-sociales mb-4">
-      <img src="twitter_x_new_logo_x_rounded_icon_256078.png" alt="Twitter">
-      <img src="facebook_logo_icon_147291.png" alt="Facebook">
-      <img src="ig.png" alt="Instagram">
-    </div>
+  <div class="container module-section">
+    <div class="module-box">
+      <h2>Objetivo del Módulo</h2>
+      <p>
+        Comprender el papel del empaque como elemento funcional, comunicativo y
+        emocional dentro del mercado infantil. Se busca establecer las bases
+        que permitirán crear empaques significativos y efectivos.
+      </p>
 
-    <!-- Texto debajo del video -->
-    <div class="texto-descriptivo">
-      <h4 class="fw-bold">🎥 Descripción del video:</h4>
-      <div class="light-bg-box">
-        <p>Este video introductorio explora los conceptos fundamentales del diseño de empaques dirigidos al público infantil. A través de ejemplos visuales y explicaciones claras, se destaca la importancia de la creatividad, la funcionalidad y el enfoque emocional en la creación de envoltorios atractivos para los más pequeños.</p>
-      </div>
+      <h3>Contenido</h3>
+      <ul>
+        <li>¿Qué es un empaque infantil?</li>
+        <li>
+          Funciones principales: protección, atracción, diferenciación y
+          sostenibilidad.
+        </li>
+        <li>
+          Elementos visuales esenciales: color, forma, ilustración, tipografía y
+          materiales.
+        </li>
+      </ul>
 
-      <h4 class="fw-bold mt-4">🧸 Introducción al Diseño de Empaque Infantil:</h4>
-      <div class="light-bg-box">
-        <p>El diseño de empaque infantil va más allá de hacer productos “bonitos”. Se trata de comunicar de forma efectiva con los niños y también con los adultos que toman decisiones de compra. Colores vibrantes, tipografías amigables, ilustraciones divertidas y elementos interactivos son clave para captar la atención del público infantil, mientras se transmiten valores de marca y seguridad. Este módulo es el punto de partida para descubrir cómo diseñar empaques que eduquen, entretengan y conecten emocionalmente.</p>
-      </div>
-    </div>
-  </div>
+      <h3>Importancia del Empaque en Productos para Niños</h3>
+      <p>
+        El empaque es la primera impresión de un producto. En el caso de los
+        productos para niños, debe ser visualmente atractivo, fácil de manipular
+        y seguro. Además, tiene que captar la atención tanto de los niños como
+        de los adultos que compran para ellos.
+      </p>
+      <p>
+        Este módulo te enseñará a identificar las características esenciales que
+        debe tener un empaque exitoso para un producto infantil, con ejemplos y
+        análisis visual.
+      </p>
+      <h3>Explicación Visual</h3>
 
-  <!-- Sección de contenido adicional -->
-  <div class="container py-5">
-    <!-- Orígenes -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2">
-        <span class="badge bg-info text-dark px-3 py-2">Orígenes</span>
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>El diseño de empaques infantiles nace de la necesidad de captar la atención del público más joven en un entorno visualmente saturado. Desde sus inicios, ha estado ligado al marketing emocional, utilizando colores llamativos, personajes amigables y formas creativas que despiertan la curiosidad y la imaginación. Este tipo de empaque no solo busca proteger el producto, sino también generar una experiencia atractiva y divertida desde el primer vistazo.</p>
+<!-- Imagen: Empaque atractivo para niños -->
+<div class="mb-3">
+  <img src="descarga.jpg" alt="Ejemplo de empaque atractivo para niños"
+       class="img-fluid rounded shadow-sm"
+       style="width:100%; max-height:300px; object-fit:contain;">
+</div>
+<p>
+  Observa cómo se usan colores brillantes, personajes ilustrados y formas
+  amigables para crear una conexión emocional inmediata.
+</p>
+
+<!-- Imagen: Empaque tradicional para comparar -->
+<div class="mb-3">
+  <img src="ChatGPT Image 9 jun 2025, 02_59_41 a.m..png" alt="Ejemplo de empaque tradicional para comparar"
+       class="img-fluid rounded shadow-sm"
+       style="width:100%; max-height:300px; object-fit:contain;">
+</div>
+<p>
+  Analiza qué elementos faltan o qué podría mejorarse para adaptarse mejor
+  a un público infantil.
+</p>
+
+
+      <h4>¿Qué debo observar en un buen empaque?</h4>
+      <ul>
+        <li>¿Está pensado para manos pequeñas y manipulación segura?</li>
+        <li>¿Informa claramente sobre el producto?</li>
+        <li>¿Genera emoción o diversión al verlo?</li>
+        <li>¿Refleja la identidad de marca y valores?</li>
+      </ul>
+
+      <h3>Actividad</h3>
+      <p>
+        Analiza tres empaques infantiles actuales. Después, diseña una propuesta
+        inicial para un producto ficticio. Incluye los siguientes elementos:
+      </p>
+      <ul>
+        <li>Nombre del producto y su público objetivo.</li>
+        <li>Descripción del concepto y estilo visual.</li>
+        <li>Elementos gráficos sugeridos (forma, color, personajes, materiales).</li>
+        <li>Formato visual (boceto escaneado, imagen digital o presentación).</li>
+      </ul>
+
+      <h4>Checklist para revisar tu propuesta</h4>
+      <ul>
+        <li>¿El diseño responde al público objetivo infantil?</li>
+        <li>¿Los elementos visuales son coherentes y atractivos?</li>
+        <li>¿La funcionalidad y seguridad del empaque están contempladas?</li>
+        <li>¿La propuesta está bien explicada y argumentada?</li>
+      </ul>
+
+      <div class="upload-box mt-4 text-center" id="uploadBox">
+        <p><strong>🔽 Sube tu análisis y propuesta aquí (JPG, PNG, PDF):</strong></p>
+        <input type="file" class="form-control mb-2" id="fileInput" />
+        <button class="btn btn-warning text-white" id="submitBtn">
+          Enviar trabajo
+        </button>
+
+        <div
+          class="spinner-border text-warning mt-3"
+          role="status"
+          id="spinner"
+          style="display: none"
+        >
+          <span class="visually-hidden">Cargando...</span>
         </div>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="packaging-design-A-1.jpg" alt="Orígenes" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-    </div>
 
-    <!-- Usos -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2 text-end">
-        <span class="badge bg-info text-dark px-3 py-2">Usos</span>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="2.jpg" alt="Usos" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>Los empaques infantiles son comunes en productos como alimentos, juguetes, útiles escolares y artículos de higiene. Su función principal es atraer tanto al niño como al adulto que toma la decisión de compra. Además de embellecer el producto, el diseño debe facilitar su uso, ofrecer información clara y fomentar el reconocimiento de marca. En muchos casos, también se convierte en una herramienta educativa o de juego.</p>
+      <div
+        class="container text-center mt-4"
+        id="nextSteps"
+        style="display: none"
+      >
+        <div class="alert alert-success" role="alert">
+          🎉 <strong>¡Felicidades!</strong> Has terminado tu trabajo. Visita la
+          pestaña de <strong>Resultados</strong> para saber tu calificación.
         </div>
+        <a href="resultado.html" class="btn btn-success">Ir a Resultados</a>
       </div>
-    </div>
-
-    <!-- Tener en cuenta -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2">
-        <span class="badge bg-info text-dark px-3 py-2">Tener en cuenta</span>
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>Al diseñar para un público infantil, se deben considerar aspectos clave como la seguridad, la simplicidad del mensaje, la ergonomía y el cumplimiento de normativas. Es fundamental comprender las etapas del desarrollo cognitivo del niño para adaptar elementos gráficos, tipografía y narrativa visual. También es importante evitar estereotipos y promover valores positivos, inclusivos y sostenibles.</p>
-        </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="popcorn.jpeg" alt="Tener en cuenta" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-    </div>
-
-    <!-- Cómo empezar -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2 text-end">
-        <span class="badge bg-info text-dark px-3 py-2">Cómo empezar</span>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="450_1000.jpg" alt="Cómo empezar" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>Iniciar en el diseño de empaques infantiles implica observar el mercado actual, investigar a fondo el público objetivo y explorar referentes visuales. Se recomienda comenzar con bocetos simples, pensando siempre en la experiencia del niño al interactuar con el empaque. Herramientas como moodboards, pruebas de usuario y prototipos físicos ayudan a perfeccionar la idea antes de llegar al producto final. La clave está en equilibrar lo funcional con lo emocional.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Botón de taller -->
-    <div class="text-center mt-5">
-      <a href="taller.html" class="btn px-5 py-2" style="background-color: #d68c2e; color: white; border-radius: 25px;">Taller</a>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const spinner = document.getElementById('spinner');
+    const nextSteps = document.getElementById('nextSteps');
+    const uploadBox = document.getElementById('uploadBox');
+
+    submitBtn.addEventListener('click', () => {
+      if (!fileInput.files.length) {
+        alert('Por favor, selecciona un archivo antes de enviar.');
+        return;
+      }
+
+      // Mostrar spinner y deshabilitar botón
+      spinner.style.display = 'inline-block';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+
+      // Simulación de subida (por ejemplo, 2 segundos)
+      setTimeout(() => {
+        spinner.style.display = 'none';
+        uploadBox.style.display = 'none';
+        nextSteps.style.display = 'block';
+      }, 2000);
+    });
+  </script>
 </body>
+
 </html>

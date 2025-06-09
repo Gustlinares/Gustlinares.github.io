@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultados - B.A.C.K</title>
+  <title>Perfil - B.A.C.K</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
   <style>
@@ -19,11 +19,11 @@
       border-radius: 0 0 20px 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 0.5rem 1rem;
-      transition: box-shadow 0.3s ease;
     }
 
     .navbar-nav .nav-link {
       color: #0B121F;
+      position: relative;
       margin-left: 8px;
       margin-right: 8px;
       padding: 8px 14px;
@@ -32,52 +32,55 @@
     }
 
     .navbar-nav .nav-link:hover {
-      background-color: rgba(183, 221, 255, 0.3);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-      transform: translateY(-1px);
+      background-color: rgba(183, 221, 255, 0.25);
+      box-shadow: 0 6px 12px rgba(55, 100, 160, 0.5);
     }
 
-    .dropdown-menu {
-      border-radius: 8px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
-    }
-
-    .dropdown-item:hover {
-      background-color: rgba(183, 221, 255, 0.2);
-    }
-
-    .results-section {
+    .profile-section {
       padding: 60px 20px;
     }
 
-    .results-box {
+    .profile-box {
       background-color: #fff;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       padding: 40px;
+      text-align: center;
     }
 
-    .result-item {
-      border-left: 6px solid #D28829;
-      padding: 20px 25px;
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
       margin-bottom: 20px;
-      background-color: #fdfdfd;
-      border-radius: 6px;
+      border: 4px solid #D28829;
     }
 
-    .result-item h5 {
-      margin-bottom: 10px;
-      font-weight: bold;
+    .badge-custom {
+      background-color: #37ACDB;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin: 5px;
+      display: inline-block;
     }
 
-    .status-completed {
-      color: #28a745;
-      font-weight: bold;
+    .edit-btn {
+      margin-top: 30px;
+      background-color: #D28829;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .status-pending {
-      color: #ffc107;
-      font-weight: bold;
+    .edit-btn:hover {
+      background-color: #b57324;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
   </style>
 </head>
@@ -92,7 +95,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#">Resultados</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultado.html">Resultados</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">Módulos</a>
             <ul class="dropdown-menu">
@@ -102,37 +105,27 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
-          <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Perfil</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section class="results-section">
+  <section class="profile-section">
     <div class="container">
-      <div class="results-box mx-auto col-md-10">
-        <h2 class="mb-4 text-center">Progreso del Usuario</h2>
-
-        <div class="result-item">
-          <h5>Módulo 1: Introducción al Diseño de Empaques Infantiles</h5>
-          <p class="status-completed">Estado: Completado</p>
-          <p>Calificación: 9.5 / 10</p>
-          <p>Comentario: Excelente comprensión de los fundamentos del diseño infantil.</p>
+      <div class="profile-box mx-auto col-md-8">
+        <img src="man-5519413_1280.jpg" alt="Foto de perfil" class="profile-img">
+        <h2 class="mb-1">Alejandra Torres</h2>
+        <p class="text-muted">Diseñadora Junior | Estudiante del MOOC B.A.C.K</p>
+        <hr>
+        <h4 class="mb-3">Logros Obtenidos</h4>
+        <div>
+          <span class="badge-custom">✔ Módulo 1 Completado</span>
+          <span class="badge-custom">✔ Módulo 2 Completado</span>
+          <span class="badge-custom">🏅 Creatividad Destacada</span>
+          <span class="badge-custom">📥 Proyecto Entregado</span>
         </div>
-
-        <div class="result-item">
-          <h5>Módulo 2: Psicología del Color y Diseño para Niños</h5>
-          <p class="status-completed">Estado: Completado</p>
-          <p>Calificación: 9.8 / 10</p>
-          <p>Comentario: Gran uso del color y justificación emocional.</p>
-        </div>
-
-        <div class="result-item">
-          <h5>Módulo 3: Envolturas y Etiquetas Creativas</h5>
-          <p class="status-pending">Estado: En revisión</p>
-          <p>Calificación: —</p>
-          <p>Comentario: Aún no evaluado. Se notificará cuando esté disponible.</p>
-        </div>
+        <button class="edit-btn mt-4">✏️ Editar Perfil</button>
       </div>
     </div>
   </section>

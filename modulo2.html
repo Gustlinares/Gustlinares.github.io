@@ -1,119 +1,318 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diseño de Empaques</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="modulo2.css">
+  <title>Módulo 2 - B.A.C.K</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Chau Philomene One', sans-serif;
+      background-color: #f9f9f9;
+      color: #0B121F;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #FFFFFF;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .navbar-nav .nav-link {
+      color: #0B121F;
+      margin-left: 8px;
+      margin-right: 8px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background-color: rgba(183, 221, 255, 0.3);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+      transform: translateY(-1px);
+      color: #0B121F;
+      text-decoration: none;
+    }
+
+    .dropdown-menu {
+      border-radius: 8px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(183, 221, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #D28829, #37ACDB, #D28829);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 6px 20px rgba(55, 172, 219, 0.5);
+      margin-bottom: 40px;
+    }
+
+    /* Module Section */
+    .module-section {
+      padding: 0 15px 50px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .module-box {
+      background-color: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 30px 35px;
+      margin-bottom: 40px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .module-box:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Upload Box */
+    .upload-box {
+      background-color: #f9f9f9;
+      border: 2px dashed #37ACDB;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(55, 172, 219, 0.2);
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .upload-box:hover {
+      box-shadow: 0 6px 20px rgba(55, 172, 219, 0.4);
+      border-color: #D28829;
+    }
+
+    .upload-box p {
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #0B121F;
+    }
+
+    .upload-box input[type="file"] {
+      border-radius: 8px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+      transition: border-color 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 15px auto;
+      display: block;
+    }
+
+    .upload-box input[type="file"]:focus {
+      outline: none;
+      border-color: #37ACDB;
+      box-shadow: 0 0 6px rgba(55, 172, 219, 0.6);
+    }
+
+    /* Submit Button */
+    #submitBtn {
+      background-color: #D28829;
+      color: #fff;
+      border: none;
+      padding: 10px 30px;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease,
+        transform 0.2s ease;
+      box-shadow: 0 6px 14px rgba(210, 136, 41, 0.6);
+    }
+
+    #submitBtn:hover:not(:disabled) {
+      background-color: #b56f1d;
+      box-shadow: 0 8px 18px rgba(181, 111, 29, 0.8);
+      transform: translateY(-2px);
+    }
+
+    #submitBtn:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+      box-shadow: none;
+      transform: none;
+    }
+
+    /* Spinner */
+    .spinner-border.text-warning {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Image Styles */
+    img {
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+      max-height: 200px;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    /* Next Steps Container */
+    #nextSteps {
+      max-width: 600px;
+      margin: 30px auto 0;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .module-box {
+        padding: 25px 20px;
+      }
+
+      .upload-box input[type="file"] {
+        max-width: 100%;
+      }
+
+      #nextSteps {
+        padding: 0 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="container py-4">
-    <!-- Barra superior -->
-    <div class="d-flex align-items-center mb-3">
-      <a href="index.html" class="btn-flecha me-2">
-        <img src="back-arrow_icon-icons.com_54057.png" alt="Volver" style="height: 40px;" />
-      </a>
-      <div class="titulo-bar flex-grow-1 d-flex justify-content-between align-items-center">
-        <h5 class="me-3">Psicología del Color y Diseño para Niños</h5>
-        <a href="index.html" class="btn btn-light rounded-pill px-3 py-1">Inicio</a>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="logo-removebg-preview.png" alt="Logo" style="height: 40px" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultado.html">Resultados</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">Módulos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="modulo1.html">Introducción</a></li>
+              <li><a class="dropdown-item active" href="#">Psicología del color</a></li>
+              <li><a class="dropdown-item" href="modulo3.html">Diseño creativo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="Contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <!-- Video -->
-    <div class="video-container mb-3">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/T6xdpsiN7uE?si=OI92V0x-qZnHuemL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <section class="hero">
+    <h1>Módulo 2: Psicología del Color y Diseño para Niños</h1>
+    <p>Aprende cómo usar el color como herramienta emocional para conectar con el público infantil.</p>
+  </section>
+
+  <div class="container module-section">
+    <div class="module-box">
+      <h2>Objetivo del Módulo</h2>
+      <p>Explorar el impacto psicológico de los colores en niños y cómo aplicarlos estratégicamente en el diseño de empaques para influir en sus emociones y decisiones de compra.</p>
+
+      <h3>Contenido</h3>
+      <ul>
+        <li><strong>Teoría básica del color:</strong> comprende cómo se generan los colores y qué emociones evocan. Aprende los significados universales de los colores primarios, secundarios y terciarios.</li>
+        <li><strong>Preferencias por edades:</strong> descubre cómo los niños de diferentes rangos de edad reaccionan emocionalmente a distintos colores. Por ejemplo, los bebés prefieren colores suaves, mientras que los niños mayores responden mejor a colores intensos y contrastantes.</li>
+        <li><strong>Paletas efectivas:</strong> análisis de combinaciones cromáticas exitosas en empaques reales. Aprende a equilibrar color, contraste y armonía visual.</li>
+      </ul>
+
+      <h4>¿Cómo eligen los niños sus productos?</h4>
+      <p>Los niños no eligen racionalmente: responden a estímulos sensoriales. El color es el primer gancho visual. Por eso, entender cómo reacciona cada grupo etario a ciertos colores puede definir el éxito de un empaque.</p>
+      <ul>
+        <li><strong>0 a 3 años:</strong> visión en desarrollo. Colores pasteles o contrastes fuertes (blanco y negro) estimulan su atención.</li>
+        <li><strong>4 a 7 años:</strong> imaginación activa. Colores primarios como rojo, azul y amarillo son efectivos y fáciles de reconocer.</li>
+        <li><strong>8 a 12 años:</strong> buscan originalidad. Combinaciones atrevidas, tonos neón o degradados dan un toque moderno y atractivo.</li>
+      </ul>
+
+      <h3>Explicación Visual</h3>
+      <img src="packaging-de-alimentos-infantiles-e1673286996373.jpg" alt="Ejemplo de empaque con colores cálidos para bebés" />
+      <p>Los tonos pasteles como el celeste, el rosa pálido o el crema generan sensaciones de ternura, protección y suavidad, elementos fundamentales para productos dirigidos a bebés.</p>
+
+      <img src="empaque-y-niños-1200x565.jpg" alt="Empaque con contrastes vivos para niños mayores" />
+      <p>El uso de colores saturados como el rojo, amarillo o azul brillante activa la curiosidad y la energía de niños mayores, ideal para llamar su atención en estanterías llenas de competencia.</p>
+
+      <h4>¿Qué debo observar en los ejemplos visuales?</h4>
+      <ul>
+        <li>¿El empaque se siente amigable o serio?</li>
+        <li>¿Está dirigido a un niño o a un adulto?</li>
+        <li>¿El uso del color resalta el producto o lo satura?</li>
+      </ul>
     </div>
 
-    <!-- Redes sociales -->
-    <div class="d-flex justify-content-end redes-sociales mb-4">
-      <img src="twitter_x_new_logo_x_rounded_icon_256078.png" alt="Twitter">
-      <img src="facebook_logo_icon_147291.png" alt="Facebook">
-      <img src="ig.png" alt="Instagram">
-    </div>
-
-    <!-- Texto debajo del video -->
-    <div class="texto-descriptivo">
-      <h4 class="fw-bold">🎥 Descripción del video:</h4>
-      <div class="light-bg-box">
-        <p>Este video introductorio explora los conceptos fundamentales del diseño de empaques dirigidos al público infantil. A través de ejemplos visuales y explicaciones claras, se destaca la importancia de la creatividad, la funcionalidad y el enfoque emocional en la creación de envoltorios atractivos para los más pequeños.</p>
+    <div class="upload-box">
+      <p><strong>Sube tu trabajo final en formato PDF o imagen (JPG, PNG):</strong></p>
+      <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png" />
+      <button id="submitBtn" disabled>Enviar trabajo</button>
+      <div id="spinnerContainer" style="display:none;">
+        <div class="spinner-border text-warning" role="status"><span class="visually-hidden">Cargando...</span></div>
       </div>
-
-      <h4 class="fw-bold mt-4">🧸 Introducción al Diseño de Empaque Infantil:</h4>
-      <div class="light-bg-box">
-        <p>El diseño de empaque infantil va más allá de hacer productos “bonitos”. Se trata de comunicar de forma efectiva con los niños y también con los adultos que toman decisiones de compra. Colores vibrantes, tipografías amigables, ilustraciones divertidas y elementos interactivos son clave para captar la atención del público infantil, mientras se transmiten valores de marca y seguridad. Este módulo es el punto de partida para descubrir cómo diseñar empaques que eduquen, entretengan y conecten emocionalmente.</p>
+      <div id="successMessage" style="display:none; margin-top: 20px;">
+        <p><strong>¡Trabajo enviado con éxito!</strong></p>
+        <button id="volverBtn" class="btn btn-outline-primary me-3">Volver</button>
+        <button id="nextBtn" class="btn btn-primary">Siguiente módulo</button>
       </div>
-    </div>
-  </div>
-
-  <!-- Sección de contenido adicional -->
-  <div class="container py-5">
-    <!-- Orígenes -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2">
-        <span class="badge bg-info text-dark px-3 py-2">Orígenes</span>
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>El diseño de empaques infantiles nace de la necesidad de captar la atención del público más joven en un entorno visualmente saturado. Desde sus inicios, ha estado ligado al marketing emocional, utilizando colores llamativos, personajes amigables y formas creativas que despiertan la curiosidad y la imaginación. Este tipo de empaque no solo busca proteger el producto, sino también generar una experiencia atractiva y divertida desde el primer vistazo.</p>
-        </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="packaging-design-A-1.jpg" alt="Orígenes" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-    </div>
-
-    <!-- Usos -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2 text-end">
-        <span class="badge bg-info text-dark px-3 py-2">Usos</span>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="2.jpg" alt="Usos" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>Los empaques infantiles son comunes en productos como alimentos, juguetes, útiles escolares y artículos de higiene. Su función principal es atraer tanto al niño como al adulto que toma la decisión de compra. Además de embellecer el producto, el diseño debe facilitar su uso, ofrecer información clara y fomentar el reconocimiento de marca. En muchos casos, también se convierte en una herramienta educativa o de juego.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tener en cuenta -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2">
-        <span class="badge bg-info text-dark px-3 py-2">Tener en cuenta</span>
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>Al diseñar para un público infantil, se deben considerar aspectos clave como la seguridad, la simplicidad del mensaje, la ergonomía y el cumplimiento de normativas. Es fundamental comprender las etapas del desarrollo cognitivo del niño para adaptar elementos gráficos, tipografía y narrativa visual. También es importante evitar estereotipos y promover valores positivos, inclusivos y sostenibles.</p>
-        </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="popcorn.jpeg" alt="Tener en cuenta" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-    </div>
-
-    <!-- Cómo empezar -->
-    <div class="row mb-4 align-items-center">
-      <div class="col-12 mb-2 text-end">
-        <span class="badge bg-info text-dark px-3 py-2">Cómo empezar</span>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="450_1000.jpg" alt="Cómo empezar" class="img-bordered" style="width: 100%; max-width: 240px; height: 240px; object-fit: cover;">
-      </div>
-      <div class="col-md-6">
-        <div class="light-bg-box">
-          <p>Iniciar en el diseño de empaques infantiles implica observar el mercado actual, investigar a fondo el público objetivo y explorar referentes visuales. Se recomienda comenzar con bocetos simples, pensando siempre en la experiencia del niño al interactuar con el empaque. Herramientas como moodboards, pruebas de usuario y prototipos físicos ayudan a perfeccionar la idea antes de llegar al producto final. La clave está en equilibrar lo funcional con lo emocional.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Botón de taller -->
-    <div class="text-center mt-5">
-      <a href="taller1.html" class="btn px-5 py-2" style="background-color: #d68c2e; color: white; border-radius: 25px;">Taller</a>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const submitBtn = document.getElementById('submitBtn');
+    const spinnerContainer = document.getElementById('spinnerContainer');
+    const successMessage = document.getElementById('successMessage');
+    const volverBtn = document.getElementById('volverBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Activar botón solo si hay archivo válido
+    fileInput.addEventListener('change', () => {
+      submitBtn.disabled = !fileInput.files.length;
+    });
+
+    submitBtn.addEventListener('click', () => {
+      submitBtn.disabled = true;
+      spinnerContainer.style.display = 'block';
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.classList.add('disabled');
+
+      // Simular carga
+      setTimeout(() => {
+        spinnerContainer.style.display = 'none';
+        successMessage.style.display = 'block';
+        submitBtn.style.display = 'none';
+      }, 3500);
+    });
+
+    volverBtn.addEventListener('click', () => {
+      successMessage.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      submitBtn.disabled = !fileInput.files.length;
+      submitBtn.textContent = 'Enviar trabajo';
+      submitBtn.classList.remove('disabled');
+      fileInput.value = '';
+    });
+
+    nextBtn.addEventListener('click', () => {
+      window.location.href = 'modulo3.html';
+    });
+  </script>
 </body>
+
 </html>
